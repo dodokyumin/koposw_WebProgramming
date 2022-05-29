@@ -1,0 +1,48 @@
+div {
+  background-color: bisque;
+  height: 300px;
+}
+
+body{
+  background-color: darkseagreen;
+}
+
+p{
+  background-color: chartreuse;
+}
+
+/* class 셀렉터 */
+.red-text {
+  color: red;
+}
+
+.yellow-text{
+  color:yellow;
+}
+
+.big-size{
+  font-size: 50px;
+}
+
+.border{
+  border-style: dashed;
+  border-width: 1px;
+}
+
+#div1 {
+  background-color: deeppink;
+}
+
+
+a{
+  text-decoration: none;
+}
+
+a:hover{
+  color : gainsboro;
+  transition : 3s;   
+}
+
+body{
+  font-family: 'Noto Sans KR', sans-serif;
+}
