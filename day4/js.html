@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <button onclick="greeting()">인사</button>
+
+    <script>
+      //상수
+      const NUM = 10;
+
+      //변수
+      var i = 10;
+      var i = 20; //var는 재선언이 된다.
+      console.log(i); //오류가 나지 않는 이상한 var. let을 쓰자!
+
+      //중간에 타입이 바뀔 수 있는 JS. 주의하자!
+      let num = 10; //10의 타입은 number이다. integer라고 불리지 않는다.
+      num = "hello";
+      let text = "Hello";
+      text = 10;
+
+      //문자열 병합
+      let name = "홍규민";
+      let age = 42;
+      let result = name + "는" + age + "살입니다.";
+      //문자열 병합(또다른 방법)
+      result = `${name}는 ${age}살입니다.`;
+
+      let items = [1, 2, 3, 4];
+      for (var i = 0; i < items.length; i++) {
+        console.log(items[i]);
+      }
+      //for문의 또 다른 방법.
+      for (let item in items) {
+        console.log(num);
+      }
+
+      //Object, JSON형태
+      let person = {
+        //key : value
+        name: "홍규민",
+        age: 27,
+      };
+      console.log(person);
+      console.log(person.name);
+
+      function myFunc(num) {
+        console.log(num);
+      }
+    </script>
+  </body>
+</html>
