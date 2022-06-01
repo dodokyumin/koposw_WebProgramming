@@ -4,18 +4,41 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script>
-      //이름 입력
-      let name = prompt("이름이 무엇인가요?");
-
-      if (name == "") {
-        name = prompt("다시 입력해 주세요.");
-      }
-
-      console.log(name);
-      alert(`${name}님 안녕하세요!`);
-    </script>
+    <title>실습2</title>
   </head>
-  <body></body>
+  <body>
+    <h1 class="text"></h1>
+    <div class="buttons">
+      <button id="red" onclick="changeRed()">빨강</button>
+      <button id="blue" onclick="changeBlue()">파랑</button>
+      <button id="green" onclick="changeGreen()">초록</button>
+    </div>
+
+    <script>
+      document.querySelector(".buttons").style.display = "none";
+      let $text = document.getElementsByClassName("text")[0];
+
+      let inputText = prompt("텍스트를 입력하세요.");
+
+      while (inputText == "") {
+        inputText = prompt("텍스트 값을 입력해 주세요.");
+      }
+      //display속성이 none이였던 것을 block으로 하여 화면에 나타내기.
+      document.querySelector(".buttons").style.display = "block";
+      $text.innerHTML = inputText;
+
+      function changeRed() {
+        alert("빨간색으로 변경됩니다.");
+        $text.style.color = "red";
+      }
+      function changeBlue() {
+        alert("파란색으로 변경됩니다.");
+        $text.style.color = "blue";
+      }
+      function changeGreen() {
+        alert("초록색으로 변경됩니다.");
+        $text.style.color = "green";
+      }
+    </script>
+  </body>
 </html>
