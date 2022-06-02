@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      input, select, option {
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div>아이디 <input id="id" type="text" /></div>
+    <div>비밀번호 <input id="pwd" type="text" /></div>
+    <div>
+      성별 <input id="man" type="radio" />남자
+      <input id="man" type="radio" />여자
+    </div>
+    <div>직업 <select id="job">
+      <option hidden>==선택==</option>
+      <option value="stu">학생</option>
+      <option value="tea">선생</option>
+      <option value="pro">교수</option>
+    </select>
+    <div>취미
+      <input type="checkbox" id="code"> 개발
+      <input type="checkbox" id="code"> 게임
+      <input type="checkbox" id="code"> 낚시
+      <br>
+      <input type="checkbox" id="code"> 운동
+      <input type="checkbox" id="code"> 독서
+      <input type="checkbox" id="code"> 음악감상
+    </div>
+    <button>취소</button>
+    <button>회원가입</button>
+  </body>
+</html>
