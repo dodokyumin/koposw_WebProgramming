@@ -19,7 +19,7 @@
       var i = 20; //var는 재선언이 된다.
       console.log(i); //오류가 나지 않는 이상한 var. let을 쓰자!
 
-      //중간에 타입이 바뀔 수 있는 JS. 주의하자!
+      //중간에 타입이 바뀔 수 있는 JS의 특징. 주의하자!
       let num = 10; //10의 타입은 number이다. integer라고 불리지 않는다.
       num = "hello";
       let text = "Hello";
@@ -31,7 +31,7 @@
       let result = name + "는" + age + "살입니다.";
       //문자열 병합(또다른 방법)
       result = `${name}는 ${age}살입니다.`;
-
+      
       let items = [1, 2, 3, 4];
       for (var i = 0; i < items.length; i++) {
         console.log(items[i]);

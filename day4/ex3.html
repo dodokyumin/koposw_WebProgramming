@@ -6,7 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>실습3</title>
     <style>
-      div {
+      .mouseon {
+        /* 블록요소를 왼쪽 정렬하는데 사용한다. */
+        float: left;
+        border: 1px solid grey;
+        background-color: white;
+        color: grey;
+        width: 200px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        margin: 5px;
+      }
+      .mouseleave {
         /* 블록요소를 왼쪽 정렬하는데 사용한다. */
         float: left;
         border: 1px solid grey;
@@ -23,21 +35,24 @@
   <body>
     <div
       id="button1"
-      onmouseover="changeButton1()"
+      class="mouseleave"
+      onmouseover="changeButton('button1')"
       onmouseleave="defaultColor()"
     >
       html
     </div>
     <div
       id="button2"
-      onmouseover="changeButton2()"
+      class="mouseleave"
+      onmouseover="changeButton('button2')"
       onmouseleave="defaultColor()"
     >
       css
     </div>
     <div
       id="button3"
-      onmouseover="changeButton3()"
+      class="mouseleave"
+      onmouseover="changeButton('button3')"
       onmouseleave="defaultColor()"
     >
       javascript
@@ -46,38 +61,13 @@
       let $button1 = document.querySelector("#button1");
       let $button2 = document.querySelector("#button2");
       let $button3 = document.querySelector("#button3");
-
-      function changeButton1() {
-        $button1.style.background = "white";
-        $button1.style.color = "grey";
-        $button2.style.background = "grey";
-        $button2.style.color = "white";
-        $button3.style.background = "grey";
-        $button3.style.color = "white";
-      }
-      function changeButton2() {
-        $button2.style.background = "white";
-        $button2.style.color = "grey";
-        $button1.style.background = "grey";
-        $button1.style.color = "white";
-        $button3.style.background = "grey";
-        $button3.style.color = "white";
-      }
-      function changeButton3() {
-        $button3.style.background = "white";
-        $button3.style.color = "grey";
-        $button2.style.background = "grey";
-        $button2.style.color = "white";
-        $button1.style.background = "grey";
-        $button1.style.color = "white";
+      function changeButton(a) {
+        document.getElementById(a).className = "mouseon";
       }
       function defaultColor() {
-        $button1.style.background = "grey";
-        $button1.style.color = "white";
-        $button2.style.background = "grey";
-        $button2.style.color = "white";
-        $button3.style.background = "grey";
-        $button3.style.color = "white";
+        $button1.className = "mouseleave";
+        $button2.className = "mouseleave";
+        $button3.className = "mouseleave";
       }
     </script>
   </body>
