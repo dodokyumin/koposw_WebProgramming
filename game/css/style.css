@@ -11,3 +11,11 @@
   left : 50px;
 
 }
+
+#enemy {
+  width: 100;
+  position: absolute;
+  bottom: 10px;
+  right: 50px;
+
+}

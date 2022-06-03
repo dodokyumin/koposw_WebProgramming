@@ -15,14 +15,36 @@
   </head>
   <body>
     <div class="container">
-      <div id="character">
-        <img href="assets/character.gif" alt="character"></img>
-      </div>
+
+        <img id="character" href="assets/character.gif" alt="character"></img>
+        <img id="enemy" href="assets/enemy.gif" alt="enemy"></img>
+
     </div>
 
     <script>
+      
       let isJumping = false;
 
+      function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min; //최댓값은 제외, 최솟값은 포함
+      }
+
+      
+      //////////////////////enemy////////////////////////
+      const RESPAWN = getRandomInt(500, 10000);
+      const SPEED = getRandomInt(500, 1000);
+      enemyStart();
+      function enemyStart(){
+        $('#enemy').animate({left:'-150px'}, SPEED, function(){
+          $('#enemy').css('right', '-50px').css('left','');
+        });
+
+        setTimeout(enemyStart,RESPAWN); 
+      }
+
+      ////////////////////character/////////////////////
       //연타방지
       function jump(){
         if(isJumping){
@@ -36,7 +58,6 @@
         })
       }
 
-
       //onload
       $(function(){
         $('body').keydown(function(event){
@@ -47,6 +68,10 @@
           }
         } 
       )});
+
+      
+
+      
     </script>
   </body>
 </html>
