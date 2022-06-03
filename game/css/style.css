@@ -1,0 +1,13 @@
+.container{
+  border:1px black solid;
+  height: 90vh;
+  position: relative;
+}
+
+#character{
+  width: 200;
+  position : absolute;
+  bottom : 10px;
+  left : 50px;
+
+}

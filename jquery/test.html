@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function physics(obj, collider) {
+        var delta = 30;
+        obj.fallingSpeed = Math.min(
+          100,
+          Math.max(-100, obj.fallingSpeed + (obj.gravity * delta) / 100)
+        );
+        var newY = moveY(obj) + (obj.fallingSpeed * delta) / 100;
+        var newX = moveX(obj);
+
+        var collx = newX + collider.x;
+        var colly = newY + collider.y;
+        var newW = collider.width;
+        var newH = collider.height;
+
+        var collisions = tilemapCollide(mytilemap, {
+          x: collx,
+          y: colly,
+          width: newW,
+          height: newH,
+        });
+
+        var i = 0;
+        while (i < collisions.length) {
+          var collision = collisions[i];
+          i++;
+          var collisionBox = {
+            x1: collision.x,
+            y1: collision.y,
+            x2: collision.x + collision.width,
+            y2: collision.y + collision.height,
+          };
+
+          var x = intersect(
+            collx,
+            newX + newW,
+            collisionBox.x1,
+            collisionBox.x2
+          );
+          var y = intersect(
+            colly,
+            newY + newH,
+            collisionBox.y1,
+            collisionBox.y2
+          );
+
+          // Wall System.
+          var diffx = x[0] == newX ? x[0] - x[1] : x[1] - x[0];
+          var diffy = y[0] == newY ? y[0] - y[1] : y[1] - y[0];
+
+          if (Math.abs(diffx) > Math.abs(diffy)) {
+            // displace along the y axis
+            if (y[0] == newY) {
+              console.log("^ Entering");
+            } else {
+              console.log("v Entering");
+            }
+            newY -= diffy;
+            obj.speed = 0;
+            if (obj.status == "jump" && diffy > 0) {
+              obj.status = "stand";
+              gf.setAnimation(obj, idle);
+            }
+          } else {
+            // displace along the x axis
+
+            if (x[0] == newX) {
+              console.log("< Entering");
+            } else {
+              console.log("> Entering");
+            }
+            newX -= diffx;
+          }
+        }
+        moveX(obj, newX);
+        moveY(obj, newY);
+      }
+      physics(10, 10);
+    </script>
+  </body>
+</html>
