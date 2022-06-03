@@ -70,6 +70,9 @@
         else if($("input:radio[name=gener]").is(':checked') == false){
           alert("성별을 입력해주세요.");
         }
+        else if($("#job option:checked").text() == ""){
+          alert("직업을 선택해주세요.");
+        }
         else if(checkBoxCnt < 3){
           alert("취미는 3개 이상 체크해야합니다.");
         }
