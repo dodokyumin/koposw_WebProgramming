@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <script>
+      $(function () {
+        const queryString = window.location.search; // url 뒤 ? 부터(ex: '?id=1')
+        const urlParams = new URLSearchParams(queryString);
+        const id = urlParams.get("id");
+        console.log(id);
+
+        loadData(id);
+      });
+
+      function loadData(i) {
+        fetch(
+          "https://api.themoviedb.org/3/movie/upcoming?api_key=a64533e7ece6c72731da47c9c8bc691f&language=ko-KR&page=1"
+        )
+          .then((response) => response.json())
+          .then((json) => {
+            //for (let i=0; i < jsonArray.length; i++)
+            let $list = $("#list");
+            let $des = $("#description");
+
+            $list.append(`<div class="card">
+                <div class="container">
+                  <h4 style="text-align : center">${
+                    Object.values(json.results[i])[10]
+                  }</h4>
+                  <h4><b><img src = "https://image.tmdb.org/t/p/w500${
+                    Object.values(json.results[i])[8]
+                  }"></b></h4>
+                  </div>
+              </div>`);
+            $des.append(`<div class="card">
+            <h4 style="text-align : center">${
+              Object.values(json.results[i])[6]
+            }</h4>
+              
+          </div>`);
+          });
+      }
+    </script>
+
+    <div id="list"></div>
+    <div id="description"></div>
+  </body>
+</html>
