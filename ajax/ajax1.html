@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function loadDoc() {
+        // XMLHttpRequest Obj(객체)생성
+        var xhttp = new XMLHttpRequest();
+
+        // 응답이 왔을 때의 콜백 함수 정의
+        xhttp.onreadystatechange = function () {
+          //this는 xhttp를 가리킨다.
+          // this.readyState == 4 : operation is done 정상 완료(응답이 왔으면).
+          // status : http 상태 코드를 반환한다.
+          // this.status == 200 : OK(성공했다). 서버에서 주는 값. 서버 입장에서 성공이라고 정했음
+          // this.status == 404 : 서버 입장에서 파일을 못 찾았다.
+
+          //&&을 붙여 정상적으로 응답이 오고, 성공을 했다면.
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("demo").innerHTML = this.responseText;
+          }
+        };
+        // 통신 방식이나 대상을 설정.(GET방법을 쓰고있음)
+        // 방식 : GET(읽기에 주로 쓰임), POST(쓰기), PATCH(수정), DELETE(삭제)..
+        //ajax_info.txt 파일을 읽어오는 코드
+        //비동기로 쓸 것이냐 : true
+        xhttp.open("GET", "ajax_info.txt", true);
+
+        xhttp.send();
+      }
+    </script>
+
+    <div id="demo"></div>
+    <button onclick="loadDoc()">get data</button>
+  </body>
+</html>
