@@ -17,7 +17,12 @@
       $(function () {
         $("#get_data_button").click(function () {
           // GET 방식으로 가져오기
-          $("#demo").load("ajax_info.txt");
+          //$("#demo").load("ajax_info.txt");
+          $.getJSON("people.json", function (json) {
+            console.log(json);
+            //$("#demo").html(JSON.stringify(json));
+            $("#demo").html(`${json.name} : ${json.skill}`);
+          });
         });
       });
     </script>
