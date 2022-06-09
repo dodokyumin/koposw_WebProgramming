@@ -1,3 +1,5 @@
+package j;
+
 public class Word {
   private String letters;
 
