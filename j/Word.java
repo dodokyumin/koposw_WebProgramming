@@ -8,7 +8,7 @@ public class Word {
   // i 번째 글자가 모음인지 // a, i, u, e, o
   public boolean isVowel(int i) {
     boolean answer = false;
-    String[] Vowel = new String[5];
+    String[] Vowel = { "a", "i", "u", "e", "o" };
     String target = letters.substring(i, i + 1);
     if (target.equals("a") || target.equals("i") || target.equals("u") || target.equals("e") || target.equals("o")) {
       answer = true;
