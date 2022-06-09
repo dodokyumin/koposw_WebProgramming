@@ -9,7 +9,12 @@ public class Word {
   public boolean isVowel(int i) {
     boolean answer = false;
     String[] Vowel = { "a", "i", "u", "e", "o" };
+
+    for (int j = 0; j < Vowel.length; j++) {
+
+    }
     String target = letters.substring(i, i + 1);
+
     if (target.equals("a") || target.equals("i") || target.equals("u") || target.equals("e") || target.equals("o")) {
       answer = true;
     }
