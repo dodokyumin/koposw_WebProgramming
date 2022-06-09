@@ -17,7 +17,7 @@ public class Algo01 {
 
         String str = String.join(",", inputList);
 
-        System.out.println("Hello " + str + ".");
+        System.out.println("Hello " + str.substring(1, str.length()) + ".");
 
         sc.close();
     }
