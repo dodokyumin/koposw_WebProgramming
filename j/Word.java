@@ -28,10 +28,10 @@ public class Word {
     String vowel = "aiueo";
     String target = letters.substring(i, i + 1);
     if (vowel.contains(target)) {
-      result = true;
-    } else {
       result = false;
+    } else {
+      result = true;
     }
     return result;
   }
-} 
+}
