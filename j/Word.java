@@ -24,14 +24,6 @@ public class Word {
 
   // i 번째 글자가 자음인지 // a, i, u, e, o 제외한 나머지.
   public boolean isConsonant(int i) {
-    boolean result = false;
-    String vowel = "aiueo";
-    String target = letters.substring(i, i + 1);
-    if (vowel.contains(target)) {
-      result = false;
-    } else {
-      result = true;
-    }
-    return result;
+    return !isVowel(i);
   }
 }
